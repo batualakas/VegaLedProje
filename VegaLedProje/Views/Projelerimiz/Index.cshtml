@@ -1,0 +1,71 @@
+﻿@model List<OurServicesViewModel>
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <style>
+      
+        .portfolio-item img {
+            height: 200px; /* Tüm resimleri aynı yükseklikte göstermek için bir değer belirleyin */
+            width: 375px; 
+        }
+
+        .portfolio-item {
+            text-align: center; /* İçerikleri ortala */
+        }
+
+            .portfolio-item h2 {
+                margin-top: 10px; /* Başlık ve açıklama arasında bir boşluk bırakır */
+            }
+
+            .portfolio-item p {
+                margin-bottom: 10px; /* Başlık ve açıklama arasında bir boşluk bırakır */
+            }
+    </style>
+    <!-- Diğer başlık etiketleri -->
+</head>
+
+<body>
+    <main id="main">
+
+        <!-- ======= Breadcrumbs ======= -->
+        <div class="breadcrumbs d-flex align-items-center" style="background-image: url('/template/assets/img/breadcrumbs-bg.jpg');">
+            <div class="container position-relative d-flex flex-column align-items-center" data-aos="fade">
+
+                <h2>Tüm Projelerimiz</h2>
+                <ol>
+                    <li><a href="/home/index">AnaSayfa</a></li>
+                    <li>Projelerimiz</li>
+                </ol>
+
+            </div>
+        </div><!-- End Breadcrumbs -->
+        <!-- ======= Our Projects Section ======= -->
+        <section id="projects" class="projects">
+            <div class="container" data-aos="fade-up">
+                <div class="portfolio-isotope" data-portfolio-filter="*" data-portfolio-layout="masonry"
+                     data-portfolio-sort="original-order">
+                    <div class="row gy-4 portfolio-container" data-aos="fade-up" data-aos-delay="200">
+                        @foreach (var item in Model)
+                        {
+                            <div class="col-lg-4 col-md-6 portfolio-item filter-remodeling">
+                                <div class="portfolio-content h-100">
+                                    <img src="~/images/OurServices/@item.ImagePath" class="img-fluid" alt="Proje Fotoğrafı">
+                                    <h2>@item.Title</h2>
+                                    <p>@item.Description</p>
+                                </div>
+                            </div>
+
+                        }
+                    </div>
+
+
+                </div>
+            </div>
+
+
+        </section>
+
+    </main>
+
+</body>
+</html>

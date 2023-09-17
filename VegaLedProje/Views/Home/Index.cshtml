@@ -1,0 +1,138 @@
+﻿@model List<OurServicesViewModel>
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <style>
+        /* Buraya CSS kodunuzu ekleyin */
+        .portfolio-item img {
+            height: 200px; /* Tüm resimleri aynı yükseklikte göstermek için bir değer belirleyin */
+            width: 375px; /* Genişlik otomatik ayarlanacaktır */
+        }
+
+        .portfolio-item {
+            text-align: center; /* İçerikleri ortala */
+        }
+
+            .portfolio-item h2 {
+                margin-top: 10px; /* Başlık ve açıklama arasında bir boşluk bırakır */
+            }
+
+            .portfolio-item p {
+                margin-bottom: 10px; /* Başlık ve açıklama arasında bir boşluk bırakır */
+            }
+    </style>
+    <!-- Diğer başlık etiketleri -->
+</head>
+<body>
+
+    <!-- ======= Hero Section ======= -->
+    <section id="hero" class="hero">
+        <div class="info d-flex align-items-center">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-6 text-center">
+                        <h2 data-aos="fade-down">Vega Led</h2>
+                        <p data-aos="fade-up" data-aos-delay="200" class="btn-get-started">Biz Kimiz?</p>
+                        <p data-aos="fade-up">
+                            Şirketimiz Vega Led Aydınlatma Sistemleri 2002 yılında Antalya'nın Alanya ilçesinde Süha Ayhan ERTEM tarafından kurulmuştur. Profesyonel mimari aydınlatma tasarımları yapmaktayız. Profesyonel DMX dış cephe aydınlatma ürünleri ve tecrübeli uygulama ekibimizle sizlere iyi bir hizmet vereceğimizden şüpheniz olmasın.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="hero-carousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
+            <div class="carousel-item active" style="background-image: url(/template/assets/img/karosel3.jpg)"></div>
+            <div class="carousel-item" style="background-image: url(/template/assets/img/karosel.jpg)"></div>
+            <div class="carousel-item" style="background-image: url(/template/assets/img/aciklamayok.jpg)"></div>
+            <div class="carousel-item" style="background-image: url(/template/assets/img/karosel2.jpg)"></div>
+            <div class="carousel-item" style="background-image: url(/template/assets/img/bera.jpg)">
+            </div>
+            <a class="carousel-control-prev" href="#hero-carousel" role="button" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon bi bi-chevron-left" aria-hidden="true"></span>
+            </a>
+            <a class="carousel-control-next" href="#hero-carousel" role="button" data-bs-slide="next">
+                <span class="carousel-control-next-icon bi bi-chevron-right" aria-hidden="true"></span>
+            </a>
+        </div>
+    </section><!-- End Hero Section -->
+    <main id="main">
+        <!-- ======= Alt Services Section ======= -->
+        <section id="alt-services" class="alt-services">
+            <div class="container" data-aos="fade-up">
+                <div class="row justify-content-around gy-4">
+                    <div class="col-lg-6 img-bg" style="background-image: url(/template/assets/img/suha.jpg);" data-aos="zoom-in"
+                         data-aos-delay="100"></div>
+                    <div class="col-lg-5 d-flex flex-column justify-content-center">
+                        <h1>Hizmetlerimiz</h1>
+                        <div class="icon-box d-flex position-relative" data-aos="fade-up" data-aos-delay="100">
+                            <i class="bi bi-easel flex-shrink-0"></i>
+                            <div>
+                                <h4>Tasarım</h4>
+                                <p>
+                                    LED aydınlatma konusundaki yaratıcı tasarım ekibimiz, her projenin özel gereksinimlerini karşılayacak özelleştirilmiş çözümler sunmaktadır. Estetik değeri yüksek, fonksiyonel ve çevreye duyarlı tasarımlarımız, mekanlarınıza özel aydınlatma dokunuşları sağlamak için tasarlanmıştır.
+                                </p>
+                            </div>
+                        </div><!-- End Icon Box -->
+                        <div class="icon-box d-flex position-relative" data-aos="fade-up" data-aos-delay="200">
+                            <i class="bi bi-patch-check flex-shrink-0"></i>
+                            <div>
+                                <h4>Üretim</h4>
+                                <p>
+                                    Firmamız, son teknoloji ekipmanlarla donatılmış üretim tesislerinde, yüksek kaliteli LED aydınlatma ürünleri üretmektedir. Mühendislik uzmanlarımızın deneyimi sayesinde, müşterilerimize enerji verimliliği sağlayan ve estetik açıdan çekici ürünler sunmaktayız.
+                                </p>
+                            </div>
+                        </div><!-- End Icon Box -->
+                        <div class="icon-box d-flex position-relative" data-aos="fade-up" data-aos-delay="300">
+                            <i class="bi bi-brightness-high flex-shrink-0"></i>
+                            <div>
+                                <h4>Uygulama</h4>
+                                <p>
+                                    Uygulama aşamasında, uzman ekiplerimiz tasarlanan LED aydınlatma çözümlerini titizlikle hayata geçirir. Her aşamada kalite kontrolünden geçen ürünlerimiz, sahada profesyonelce kurulur ve test edilir. Mekanlarınıza özel aydınlatma atmosferini en yüksek standartlarda sağlamak için çalışıyoruz.
+                                </p>
+                            </div>
+                        </div><!-- End Icon Box -->
+
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="section-header">
+            <h1>Yapmış Olduğumuz Projeler</h1>
+
+            <a href="Projelerimiz">
+                Tüm Projelerimizi Görebilmek İçin Lütfen Tıklayınız
+            </a>
+        </div>
+
+        @{
+            var sortedModel = Model.OrderByDescending(item => item.Id).Take(3).ToList();
+        }
+
+        <section id="projects" class="projects">
+            <div class="container" data-aos="fade-up">
+                <div class="portfolio-isotope" data-portfolio-filter="*" data-portfolio-layout="masonry"
+                     data-portfolio-sort="original-order">
+                    <div class="row gy-4 portfolio-container" data-aos="fade-up" data-aos-delay="200">
+                        @foreach (var item in sortedModel)
+                        {
+                            <div class="col-lg-4 col-md-6 portfolio-item filter-remodeling">
+                                <div class="portfolio-content h-100">
+                                    <img src="~/images/OurServices/@item.ImagePath" class="img-fluid" alt="Proje Fotoğrafı">
+                                    <h2>@item.Title</h2>
+                                    <p>@item.Description</p>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+    </main><!-- End #main -->
+
+
+
+</body>
+
+</html>

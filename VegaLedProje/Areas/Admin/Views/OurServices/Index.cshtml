@@ -1,0 +1,42 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@addTagHelper *, VegaLedProje
+@using VegaLedProje.Areas.Admin.Models;
+@using VegaLedProje.Data.Entities
+@model List<OurServicesEntity>
+@{
+
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+
+<h1>Projelerimiz</h1>
+<table class="table table-bordered">
+    <tr>
+        <th>Projenin İD'si</th>
+        <th>Başlık</th>
+        <th>Açıklama</th>
+        <th>Resim</th>
+        <th>Sil</th>
+        
+    </tr>
+    @foreach (var item in Model)
+    {
+        @if (item.IsDeleted == false)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Title</td>
+                <td>@item.Description</td>
+                <td> <img src="~/images/OurServices/@item.ImagePath" style="width:100px; height:100px;" /></td>
+                <td><a asp-area="Admin" asp-controller="OurServices" asp-action="Delete" asp-route-id="@item.Id" method="get" class="btn btn-sm btn-danger delete"> Sil</a></td>
+               
+            </tr>
+        }
+
+    }
+
+</table>
+<a asp-area="Admin" asp-controller="OurServices" asp-action="New" class="btn btn-outline-primary">Yeni Proje Oluştur</a>
+
+
+
